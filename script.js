@@ -1,8 +1,4 @@
-// Load words from words.txt file
-$.get('words.txt', function (data) {
-    wordsArray = data.split(/\r?\n/);
-    console.log('Loaded words:', wordsArray); // Log the loaded words array
-});
+
 $(document).ready(function () {
     let currentTotalSearches = 0;
     let intervalId = null;
@@ -12,10 +8,14 @@ $(document).ready(function () {
 
 
     //========================================Random Word Search===================================================
-
+    // Load words from words.txt file
+    $.get('words.txt', function (data) {
+        wordsArray = data.split(/\r?\n/);
+        console.log('Loaded words:', wordsArray); // Log the loaded words array
+    });
 
     function getRandomWord() {
-        if (wordsArray.length === 0) {
+        if (wordsArray.length == 0) {
             //Words array is empty. Random Srring Search Continue
             let randomStr = generateRandomString(6);
             return randomStr;
