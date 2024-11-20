@@ -45,7 +45,18 @@ $(document).ready(function () {
 
     function performSearch() {
         const randomSearchTerm = generateUniqueCode();
-        const randomForm = Math.random().toString(36).substring(2, 7).toUpperCase(); // Simplified random form generation
+
+        // Predefined list of forms
+        const formValues = [
+            "QBLH", "QBRE", "HDRSC1", "LGWQS1", "LGWQS2", "LGWQS3", 
+            "R5FD", "R5FD1", "R5FD2", "R5FD3", "R5FD4", "R5FD5", 
+            "R5FD6", "R5FD7", "QSRE1", "QSRE2", "QSRE3", "QSRE4", 
+            "QSRE5", "QSRE6", "QSRE7", "QSRE8"
+        ];
+        // Randomly pick a form value from the list
+        const randomForm = formValues[Math.floor(Math.random() * formValues.length)];
+        // const randomForm = Math.random().toString(36).substring(2, 7).toUpperCase(); // Simplified random form generation
+        
         const searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(randomSearchTerm)}&form=${randomForm}`;
 
         console.log(`Searching for: ${randomSearchTerm} with FORM=${randomForm}`);
@@ -65,7 +76,7 @@ $(document).ready(function () {
             if (previousTab) {
                 previousTab.close();
             }
-        }, 6000); // Wait 6 seconds before closing the tab
+        }, 7000); // Wait 6 seconds before closing the tab
 
         currentTotalSearches++;
         $('#span-progress').text(`Total searches performed: ${currentTotalSearches}`);
