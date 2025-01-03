@@ -15,7 +15,8 @@ $(document).ready(function () {
     });
 
     function getRandomWord() {
-        if (wordsArray.length == 0) {
+        //word.txt file e text 5 er besi hole search hobe nahole random word search hobe
+        if (wordsArray.length <= 5) {
             //Words array is empty. Random Srring Search Continue
             let randomStr = generateRandomString(6);
             return randomStr;
